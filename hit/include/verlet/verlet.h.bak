@@ -1,0 +1,71 @@
+#ifndef VERLET_H
+#define VERLET_H
+
+#include <vector>
+
+namespace verlet
+{
+	using std::vector;
+
+    class iShape;
+    class Body
+    {
+	public:
+	void Reset(const Vector& xPosition, float fOrientation, float fMass);
+
+	void AddForce(const Vector& F);
+    void AddTorque(float T);
+	
+	int Collide(CBody& Body, float dt, CContact *pxContacts, size_t numMaxContacts);
+
+    void AddForce(const Vector& F, const Vector& P);
+	
+	Vector GetPointVelocity(const Vector& P, float dt);
+	
+	void Update(float dt);
+
+    protected:
+        vector<iShape> shapes;
+        Point2f pos;
+		Point2f netForce;
+		Point2f velocity;
+		float netTorque;
+		float angVelocity; // angular velocity
+        float mass;
+        float invMass;
+		float inertia;
+		float invInertia;
+    };
+    class iShape
+    {
+    protected:
+        Body &body; // attached body
+        Point2f pos;
+        Point2f dir;
+    };
+    class BoxShape : public iShape
+    {
+    protected:
+        Point2f size;
+    };
+    class CircleShape : public iShape
+    {
+    protected:
+        float radius;
+    };
+	class PolygonShape : public iShape
+	{
+	protected:
+		vector<Point2f> vertices;
+	};
+    class LinConstraint
+    {
+    public:
+        void Update();
+    protected:
+        Body *m_pxBodyA, *m_pxBodyB;
+        float m_fRestLength;
+    };
+}
+
+#endif//VERLET_H

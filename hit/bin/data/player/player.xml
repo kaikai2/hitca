@@ -1,0 +1,43 @@
+<CurvedAni length="240" numDataSets="5" numInterpolaters="2" numAnimElements="3">
+    <DataSet name="CDS_HGE_Image" numData="1">
+		<Data time="0" value="data/player/player.png;0,0,100,100" />
+	</DataSet>
+    <DataSet name="CDS_HGE_Image" numData="1">
+		<Data time="0" value="data/player/player.png;100,0,120,20" />
+	</DataSet>
+    <DataSet name="CDS_HGE_Image" numData="1">
+		<Data time="0" value="data/player/player.png;100,20,120,40" />
+	</DataSet>
+    <DataSet name="CDS_HGE_Float2" numData="7">
+		<Data time="-60" value="0,-100" />
+		<Data time="0" value="-100,0" />
+		<Data time="60" value="0,100" />
+		<Data time="120" value="100,0" />
+		<Data time="180" value="0,-100" />
+		<Data time="240" value="-100,0" />
+		<Data time="300" value="0,100" />
+	</DataSet>
+    <DataSet name="CDS_HGE_Float2" numData="7">
+		<Data time="-60" value="0,100" />
+		<Data time="0" value="100,0" />
+		<Data time="60" value="0,-100" />
+		<Data time="120" value="-100,0" />
+		<Data time="180" value="0,100" />
+		<Data time="240" value="100,0" />
+		<Data time="300" value="0,-100" />
+	</DataSet>
+    <Interpolater name="CI_HGE_StepImage" />
+    <Interpolater name="CI_HGE_BsplineFloat2" />
+<!--	<Interpolater name="CI_HGE_LinearFloat2" /> -->
+    <AnimElement numLocus="1">
+        <Locus StatusId="0" DataSetId="0" InterpolaterId="0" />
+    </AnimElement>
+    <AnimElement numLocus="2">
+        <Locus StatusId="0" DataSetId="1" InterpolaterId="0" />
+        <Locus StatusId="1" DataSetId="3" InterpolaterId="1" />
+    </AnimElement>
+    <AnimElement numLocus="2">
+        <Locus StatusId="0" DataSetId="2" InterpolaterId="0" />
+        <Locus StatusId="1" DataSetId="4" InterpolaterId="1" />
+    </AnimElement>
+</CurvedAni>
